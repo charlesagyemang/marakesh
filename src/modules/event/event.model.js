@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import sequelize from '../../db';
-// import User from '../user/user.model';
+import Attendant from '../attendant/attendant.model';
 
 // Refer to http://docs.sequelizejs.com/manual/models-definition.html
 // on how to define your model
@@ -14,7 +14,9 @@ const Event = sequelize.define('events', {
   pluLink: { type: Sequelize.STRING, allowNull: true },
 });
 
-// Event.belongsTo(User);
+Event.hasMany(Attendant, {
+  foreignKey: 'eventId',
+});
 
 Event.prototype.toJson = function toJson() {
   return {

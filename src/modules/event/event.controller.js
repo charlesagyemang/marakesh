@@ -1,10 +1,15 @@
 import HTTPStatus from 'http-status';
 import Event from './event.model';
+import Attendant from '../attendant/attendant.model';
 
 export const getEvent = async (req, res) => {
   const id = req.params.id;
 
-  const event = await Event.findByPk(id);
+  const event = await Event.findByPk(id, {
+    include: [{
+      model: Attendant,
+    }],
+  });
   if (!event) {
     res.sendStatus(HTTPStatus.NOT_FOUND);
     return;
