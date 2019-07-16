@@ -1,5 +1,5 @@
-import 'source-map-support/register';
 import express from 'express';
+import 'source-map-support/register';
 import './db';
 import setup from './middleware/setup';
 import apiRouter from './modules/api/api.routes';

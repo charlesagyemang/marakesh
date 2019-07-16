@@ -11,7 +11,7 @@ module.exports = {
   test: {
     username: 'postgres',
     password: 'password',
-    database: 'test-test',
+    database: 'plu-test',
     host: 'localhost',
     dialect: 'postgres',
     seederStorage: 'json',

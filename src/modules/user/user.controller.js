@@ -1,10 +1,15 @@
 import HTTPStatus from 'http-status';
 // import sequelize from 'sequelize';
 import User from './user.model';
+import Event from '../event/event.model';
 
 
-export const getUser = async (req, res) => {
-  const user = await User.findById(req.params.id);
+export const getUsers = async (req, res) => {
+  const user = await User.findByPk(req.params.id, {
+    include: [{
+      model: Event,
+    }],
+  });
   if (!user) {
     res.sendStatus(HTTPStatus.NOT_FOUND);
     return;
@@ -38,7 +43,6 @@ export const login = async (req, res, next) => {
     }
 
     const u = user.auth();
-
     return res.json(u);
   } catch (err) {
     if (err) next(err);

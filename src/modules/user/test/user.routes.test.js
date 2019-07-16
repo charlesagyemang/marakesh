@@ -9,7 +9,7 @@ describe('User::Routes', async () => {
     await nuke();
   });
 
-  it.only('should login successfully', async () => {
+  it('should login successfully', async () => {
     await request(server).post('/api/users/register/').send({
       name: 'name',
       email: 'test@email.com',
@@ -21,10 +21,27 @@ describe('User::Routes', async () => {
       password: 'password',
     });
 
-    // console.log(tuka.body);
+    // console.log(res.body);
 
     expect(res.statusCode).toBe(HTTPStatus.OK);
     expect(res.body).toHaveProperty('id');
     expect(res.body).toHaveProperty('token');
+  });
+
+  it.only('should get all user events', async () => {
+    const user = await request(server).post('/api/users/register/').send({
+      name: 'name',
+      email: 'test@email.com',
+      password: 'password',
+    });
+
+    const auth = { Authorization: `Bearer ${user.body.token}` };
+    await request(server).post('/api/events/').set(auth).send({
+      name: 'qweqweq',
+      createdBy: user.body.id,
+    });
+
+    const res = await request(server).get(`/api/users/${user.body.id}`).set(auth);
+    console.log(res.body);
   });
 });

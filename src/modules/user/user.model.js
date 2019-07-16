@@ -3,7 +3,7 @@
 import Sequelize from 'sequelize';
 import { hashSync, compareSync } from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
-
+import Event from '../event/event.model';
 import sequelize from '../../db';
 import constants from '../../config/constants';
 
@@ -11,12 +11,16 @@ export const USER_MODEL = 'users';
 
 const User = sequelize.define(USER_MODEL, {
   id: { type: Sequelize.STRING, primaryKey: true },
-
   name: { type: Sequelize.STRING, allowNull: false },
   email: { type: Sequelize.STRING, allowNull: false, unique: true, validate: { isEmail: true } },
   password: { type: Sequelize.STRING },
 
 });
+
+User.hasMany(Event, {
+  foreignKey: 'createdBy',
+});
+
 
 User.beforeSave((user) => {
   if (user.changed('password')) {

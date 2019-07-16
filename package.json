@@ -35,6 +35,7 @@
     "express": "4.13.4",
     "express-jwt": "3.3.0",
     "express-validation": "^1.0.2",
+    "generator-rocket-api": "^1.0.4",
     "http-status": "^1.0.1",
     "joi": "^10.6.0",
     "jsonwebtoken": "7.1.9",
