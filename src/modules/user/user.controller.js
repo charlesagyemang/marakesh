@@ -15,7 +15,7 @@ export const getUsers = async (req, res) => {
     }],
   });
   if (!user) {
-    res.sendStatus(HTTPStatus.NOT_FOUND);
+    res.send({ code: HTTPStatus.NOT_FOUND, message: 'User Not Found' });
     return;
   }
   res.send(user);

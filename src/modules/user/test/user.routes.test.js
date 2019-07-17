@@ -41,7 +41,7 @@ describe('User::Routes', async () => {
       createdBy: user.body.id,
     });
 
-    const res = await request(server).get(`/api/users/${user.body.id}`).set(auth);
+    const res = await request(server).get(`/api/users/${user.body.id}3453`).set(auth);
     console.log(res.body);
   });
 });

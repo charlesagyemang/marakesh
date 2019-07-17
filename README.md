@@ -69,3 +69,30 @@
 
 
 ```
+**/api/users/:id { Get all events of a user }**
+
+```Javascript
+// {{ Response On Success}}
+// {{ .events }} ==> All events of the user
+// {{ .events.attendants }} ==> All Attendants of that particular event
+
+
+{   id: 'p9NPt2MxmCZkQrnxu',
+    name: 'name',
+    email: 'test@email.com',
+    createdAt: '2019-07-17T14:56:09.066Z',
+    updatedAt: '2019-07-17T14:56:09.066Z',
+    events:
+     [ { id: 'mQSXJyvQTNXTtnuQR',
+         createdBy: 'p9NPt2MxmCZkQrnxu',
+         name: 'qweqweq',
+         logoUrl: null,
+         message: null,
+         pluLink: null,
+         createdAt: '2019-07-17T14:56:09.428Z',
+         updatedAt: '2019-07-17T14:56:09.428Z',
+         attendants: [...] } ] }
+
+// {{ Response On Failed }}    
+{ code: 404, message: 'User Not Found' }
+```
