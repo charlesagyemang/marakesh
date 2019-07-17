@@ -76,7 +76,6 @@
 // {{ .events }} ==> All events of the user
 // {{ .events.attendants }} ==> All Attendants of that particular event
 
-
 {   id: 'p9NPt2MxmCZkQrnxu',
     name: 'name',
     email: 'test@email.com',
@@ -95,4 +94,15 @@
 
 // {{ Response On Failed }}    
 { code: 404, message: 'User Not Found' }
+```
+
+**/api/events { Create An Event }**
+``` Javascript
+ {
+   name: STRING*,
+   createdBy: Reference [ {model: User} ] -- STRING*,
+   logoUrl: STRING{URL},
+   message: STRING,
+   pluLink: STRING{URL},
+ }
 ```
