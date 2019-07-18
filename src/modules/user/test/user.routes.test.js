@@ -28,7 +28,7 @@ describe('User::Routes', async () => {
     expect(res.body).toHaveProperty('token');
   });
 
-  it.only('should get all user events', async () => {
+  it('should get all user events', async () => {
     const user = await request(server).post('/api/users/register/').send({
       name: 'name',
       email: 'test@email.com',
