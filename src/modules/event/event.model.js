@@ -11,6 +11,9 @@ const Event = sequelize.define('events', {
   name: { type: Sequelize.STRING, allowNull: false },
   logoUrl: { type: Sequelize.STRING, allowNull: true },
   message: { type: Sequelize.STRING, allowNull: true },
+  submitMessage: { type: Sequelize.STRING, allowNull: true },
+  ratingMessage: { type: Sequelize.STRING, allowNull: true },
+  description: { type: Sequelize.STRING, allowNull: true },
   pluLink: { type: Sequelize.STRING, allowNull: true },
 });
 
