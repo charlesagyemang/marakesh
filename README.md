@@ -103,6 +103,9 @@
    createdBy: Reference [ {model: User} ] -- STRING*,
    logoUrl: STRING{URL},
    message: STRING,
+   description: STRING,
+   submitMessage: STRING,
+   ratingMessage: STRING,
    pluLink: STRING{URL},
  }
 ```
