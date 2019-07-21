@@ -44,4 +44,23 @@ describe('User::Routes', async () => {
     const res = await request(server).get(`/api/users/${user.body.id}3453`).set(auth);
     console.log(res.body);
   });
+
+  it('get a user successfully', async () => {
+    await request(server).post('/api/users/register').send({
+      name: 'Charles',
+      email: 'mm@gmail.com',
+      password: 'password',
+    });
+
+    const { body } = await request(server).post('/api/users/login').send({
+      email: 'mm@gmail.com',
+      password: 'password',
+    });
+
+    const auth = { Authorization: `Bearer ${body.token}` };
+
+    const res = await request(server).get(`/api/users/${body.id}`).set(auth);
+
+    console.log(res.body);
+  });
 });
