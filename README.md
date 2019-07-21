@@ -96,7 +96,7 @@
 { code: 404, message: 'User Not Found' }
 ```
 
-**/api/events { Create An Event }**
+**/api/events { Create And Update Body Of Event }**
 ``` Javascript
  {
    name: STRING*,
@@ -107,5 +107,16 @@
    submitMessage: STRING,
    ratingMessage: STRING,
    pluLink: STRING{URL},
+ }
+```
+
+
+**/api/attendants { Create And Update Body Of Attendant }**
+``` Javascript
+ {
+   name: STRING*,
+   email: STRING*,
+   eventId: Reference [ {model: Event} ] -- STRING*,
+   phoneNumber: STRING*,
  }
 ```
