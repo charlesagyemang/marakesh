@@ -121,3 +121,7 @@
    organisation: phoneNumber: STRING*,
  }
 ```
+
+**/api/gevent { get all events in the app no auth }**
+
+**/api/gevent/:id { get a specific event in the app no auth }**
