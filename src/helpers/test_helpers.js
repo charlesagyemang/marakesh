@@ -47,8 +47,9 @@ export const createEvent = async (server) => {
 
   const auth = { Authorization: `Bearer ${body.token}` };
   const event = await request(server).post('/api/events/').set(auth).send({
-    name: 'qweqweq',
+    name: 'Alloo Event',
     createdBy: body.id,
+    pluLink: 'https://google.com',
   });
 
   return { event: event.body, auth };

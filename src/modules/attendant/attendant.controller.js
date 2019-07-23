@@ -1,5 +1,6 @@
 import HTTPStatus from 'http-status';
 import Attendant from './attendant.model';
+import Event from '../event/event.model';
 import { sendEmail } from '../notifications/notifications.controller';
 
 export const getAttendant = async (req, res) => {
@@ -14,10 +15,16 @@ export const getAttendant = async (req, res) => {
 };
 
 export const createAttendant = async (req, res) => {
+  // get event;
+  const event = await Event.findByPk(req.body.eventId);
   req.body.specialId = (Math.floor(Math.random() * 90000) + 10000).toString();
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
-  sendEmail(attendant.email, 'Programme Line Up', `Please download the program line up using this link${attendant.name}`);
+  try {
+    sendEmail(attendant.email, `${event.name} programme line up`, `Please download the program line up using this link ${event.pluLink} `);
+  } catch (e) {
+    console.log(e);
+  }
   res.status(HTTPStatus.CREATED).json(attendant);
 };
 

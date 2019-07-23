@@ -16,7 +16,7 @@ describe('Attendant:Routes', async () => {
     const res = await request(server).post('/api/attendants/').send({
       eventId: event.id,
       name: 'Charles',
-      email: 'mm@gmail.com',
+      email: 'micnkru@gmail.com',
       phoneNumber: '0277 66 55 11',
       organisation: 'Kulibalu',
     }).set(auth);
