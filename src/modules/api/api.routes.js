@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { version } from '../../../package.json';
 import UserRouter from '../user/user.routes';
 import EventRouter from '../event/event.routes';
+import GeventRouter from '../gevent/gevent.routes';
 import AttendantRouter from '../attendant/attendant.routes';
 
 // Declare Router
@@ -18,5 +19,6 @@ apiRouter.get('/', (req, res) => {
 apiRouter.use('/users', UserRouter);
 apiRouter.use('/events', EventRouter);
 apiRouter.use('/attendants', AttendantRouter);
+apiRouter.use('/gevents', GeventRouter);
 
 export default apiRouter;
