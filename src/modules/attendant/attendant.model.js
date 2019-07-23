@@ -10,6 +10,7 @@ const Attendant = sequelize.define('attendants', {
   email: { type: Sequelize.STRING, allowNull: false },
   eventId: { type: Sequelize.STRING, allowNull: false },
   phoneNumber: { type: Sequelize.STRING, allowNull: false },
+  organisation: { type: Sequelize.STRING, allowNull: true },
   specialId: { type: Sequelize.STRING, allowNull: false },
   //other model attributes go here
 });

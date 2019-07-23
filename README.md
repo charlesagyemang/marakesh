@@ -118,5 +118,6 @@
    email: STRING*,
    eventId: Reference [ {model: Event} ] -- STRING*,
    phoneNumber: STRING*,
+   organisation: phoneNumber: STRING*,
  }
 ```

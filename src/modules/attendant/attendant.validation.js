@@ -7,6 +7,7 @@ export default {
       name: Joi.string().required(),
       phoneNumber: Joi.string().required(),
       eventId: Joi.string().required(),
+      organisation: Joi.string(),
       specialId: Joi.string(),
     },
   },

@@ -3,7 +3,7 @@ import Attendant from './attendant.model';
 import { sendEmail } from '../notifications/notifications.controller';
 
 export const getAttendant = async (req, res) => {
-  const id = req.id;
+  const id = req.params.id;
 
   const attendant = await Attendant.findById(id);
   if (!attendant) {
@@ -22,7 +22,7 @@ export const createAttendant = async (req, res) => {
 };
 
 export const updateAttendant = async (req, res) => {
-  const id = req.id;
+  const id = req.params.id;
 
   const attendant = await Attendant.findById(id);
   if (!attendant) {

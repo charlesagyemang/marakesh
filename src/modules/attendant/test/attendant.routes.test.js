@@ -18,9 +18,10 @@ describe('Attendant:Routes', async () => {
       name: 'Charles',
       email: 'mm@gmail.com',
       phoneNumber: '0277 66 55 11',
+      organisation: 'Kulibalu',
     }).set(auth);
 
-    // console.log(res.body);
+    console.log(res.body);
 
     // const { body } = await request(server).get(`/api/events/${res.body.eventId}`).set(auth);
     // const resFinal = await request(server).get(`/api/users/${body.createdBy}`).set(auth);
