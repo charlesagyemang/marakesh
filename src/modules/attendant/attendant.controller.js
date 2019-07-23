@@ -21,7 +21,7 @@ export const createAttendant = async (req, res) => {
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
   try {
-    sendEmail(attendant.email, `${event.name} programme line up`, `Please download the program line up using this link ${event.pluLink} `);
+    sendEmail(attendant.email, `${event.name} programme line up`, `Please download the program line up using this link ${event.pluLink} \n your unique id you can use to rate after the event is ${req.body.specialId}`);
   } catch (e) {
     console.log(e);
   }

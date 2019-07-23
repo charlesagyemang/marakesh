@@ -122,6 +122,15 @@
  }
 ```
 
+**/api/attendants { Create A Rating }**
+``` Javascript
+ {
+   score: STRING*,
+   specialId: STRING*,
+   eventId: Reference [ {model: Event} ] -- STRING*,
+ }
+```
+
 **/api/gevent { get all events in the app no auth }**
 
 **/api/gevent/:id { get a specific event in the app no auth }**
