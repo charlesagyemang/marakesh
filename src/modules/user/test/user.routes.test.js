@@ -45,7 +45,7 @@ describe('User::Routes', async () => {
     console.log(res.body);
   });
 
-  it('get a user successfully', async () => {
+  it.only('get a user successfully', async () => {
     await request(server).post('/api/users/register').send({
       name: 'Charles',
       email: 'mm@gmail.com',

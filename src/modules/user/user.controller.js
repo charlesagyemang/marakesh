@@ -3,15 +3,21 @@ import HTTPStatus from 'http-status';
 import User from './user.model';
 import Event from '../event/event.model';
 import Attendant from '../attendant/attendant.model';
+import Rating from '../rating/rating.model';
 
 
 export const getUsers = async (req, res) => {
   const user = await User.findByPk(req.params.id, {
     include: [{
       model: Event,
-      include: [{
-        model: Attendant,
-      }],
+      include: [
+        {
+          model: Attendant,
+        },
+        {
+          model: Rating,
+        },
+      ],
     }],
   });
   if (!user) {
