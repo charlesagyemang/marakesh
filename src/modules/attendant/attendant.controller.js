@@ -17,7 +17,7 @@ export const createAttendant = async (req, res) => {
   req.body.specialId = (Math.floor(Math.random() * 90000) + 10000).toString();
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
-  sendEmail('micnkru@gmail.com', '##[Admaxx]', 'Mesage wo ha oo');
+  sendEmail(attendant.email, 'Programme Line Up', `Please download the program line up using this link${attendant.name}`);
   res.status(HTTPStatus.CREATED).json(attendant);
 };
 
