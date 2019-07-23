@@ -122,7 +122,7 @@
  }
 ```
 
-**/api/attendants { Create A Rating }**
+**/api/ratings { Create A Rating }**
 ``` Javascript
  {
    score: STRING*,
