@@ -8,7 +8,7 @@ describe('Event:Routes', async () => {
     await nuke();
   });
 
-  it.only('Getiro Events successfully', async () => {
+  it.skip('Getiro Events successfully', async () => {
     await request(server).post('/api/users/register').send({
       name: 'Charles',
       email: 'mm@gmail.com',
@@ -26,10 +26,10 @@ describe('Event:Routes', async () => {
       createdBy: body.id,
     });
 
-    const res = await request(server).get(`/api/gevents/${event.body.id}`);
-    const res2 = await request(server).get('/api/gevents/');
-    console.log(res2.body);
-    console.log(res.body);
+    // const res = await request(server).get(`/api/gevents/${event.body.id}`);
+    // const res2 = await request(server).get('/api/gevents/');
+    // console.log(res2.body);
+    // console.log(res.body);
     // expect(res.statusCode).toBe(HTTPStatus.OK);
     // expect(res.body.id).toBe(event.id);
   });

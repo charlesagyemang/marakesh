@@ -1,6 +1,7 @@
 import request from 'supertest-as-promised';
 import User from '../modules/user/user.model';
 import Event from '../modules/event/event.model';
+import Rating from '../modules/rating/rating.model';
 import Attendant from '../modules/attendant/attendant.model';
 
 
@@ -28,6 +29,7 @@ export const login = async (server) => {
 };
 
 export const nuke = async () => {
+  await Rating.destroy({ where: {} });
   await Attendant.destroy({ where: {} });
   await Event.destroy({ where: {} });
   await User.destroy({ where: {} });

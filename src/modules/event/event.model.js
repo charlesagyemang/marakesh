@@ -1,6 +1,8 @@
 import Sequelize from 'sequelize';
 import sequelize from '../../db';
 import Attendant from '../attendant/attendant.model';
+import Rating from '../rating/rating.model';
+
 
 // Refer to http://docs.sequelizejs.com/manual/models-definition.html
 // on how to define your model
@@ -17,9 +19,14 @@ const Event = sequelize.define('events', {
   pluLink: { type: Sequelize.STRING, allowNull: true },
 });
 
+Event.hasMany(Rating, {
+  foreignKey: 'eventId',
+});
+
 Event.hasMany(Attendant, {
   foreignKey: 'eventId',
 });
+
 
 Event.prototype.toJson = function toJson() {
   return {

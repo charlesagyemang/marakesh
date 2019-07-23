@@ -1,14 +1,20 @@
 import HTTPStatus from 'http-status';
 import Event from './event.model';
 import Attendant from '../attendant/attendant.model';
+import Rating from '../rating/rating.model';
 
 export const getEvent = async (req, res) => {
   const id = req.params.id;
 
   const event = await Event.findByPk(id, {
-    include: [{
-      model: Attendant,
-    }],
+    include: [
+      {
+        model: Attendant,
+      },
+      {
+        model: Rating,
+      },
+    ],
   });
   if (!event) {
     res.sendStatus(HTTPStatus.NOT_FOUND);
