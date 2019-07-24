@@ -55,7 +55,7 @@ describe('Event:Routes', async () => {
       name: 'quiiliwa',
     });
 
-    console.log(res.statusCode);
+    console.log(res.body);
     // expect(res.statusCode).toBe(HTTPStatus.OK);
     // expect(res.body.id).toBe(event.id);
   });

@@ -14,12 +14,12 @@ export default {
   },
   updateEvent: {
     body: {
-      name: Joi.string(),
-      createdBy: Joi.string(),
-      logoUrl: Joi.string(),
-      submitMessage: Joi.string(),
-      ratingMessage: Joi.string(),
-      descripiton: Joi.string(),
+      // name: Joi.string(),
+      // createdBy: Joi.string(),
+      // logoUrl: Joi.string(),
+      // submitMessage: Joi.string(),
+      // ratingMessage: Joi.string(),
+      // descripiton: Joi.string(),
     },
   },
 };
