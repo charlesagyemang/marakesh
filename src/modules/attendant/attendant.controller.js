@@ -27,7 +27,7 @@ export const createAttendant = async (req, res) => {
     attendant.name,
     event.name,
     event.pluLink,
-    `https://xenodochial-dijkstra-e42e41.netlify.com/?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
+    `https://xenodochial-dijkstra-e42e41.netlify.com/ratings.html?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
   } catch (e) {
     console.log(e);
   }
