@@ -51,7 +51,7 @@ describe('Event:Routes', async () => {
       createdBy: body.id,
     });
 
-    const res = await request(server).patch(`/api/events/${event.body.id}`).set(auth).send({
+    const res = await request(server).put(`/api/events/${event.body.id}`).set(auth).send({
       name: 'quiiliwa',
     });
 
