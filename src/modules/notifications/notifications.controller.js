@@ -1,13 +1,26 @@
 import { Client } from 'postmark';
 
-export const sendEmail = async (recepient, subject, message) => {
+export const sendEmail = async (
+  recepient,
+  subject,
+  name,
+  eventName,
+  pluLink,
+  ratingLink,
+) => {
   try {
-    const client = new Client('fe1f6bb9-aee7-4a25-bd58-1067441563db');
-    client.sendEmail({
-      From: 'response@vendyads.com',
+    const client = new Client('f8594991-9522-4b31-99f9-61865e7ed1e4');
+    client.sendEmailWithTemplate({
+      From: 'admin@plineup.com',
       To: recepient,
-      Subject: subject,
-      TextBody: message,
+      TemplateAlias: 'welcome',
+      TemplateModel: {
+        name,
+        prog_name: eventName,
+        plu_link: pluLink,
+        rating_link: ratingLink,
+        product_name: name,
+      },
     });
     return true;
   } catch (e) {

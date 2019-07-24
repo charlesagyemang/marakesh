@@ -22,8 +22,12 @@ export const createAttendant = async (req, res) => {
   // Send Email
   try {
     sendEmail(
-      attendant.email, `${event.name} programme line up`,
-      `Please download the program line up using this link ${event.pluLink} \n Please Use the link below to rate thi event when  the event is over\n https://xenodochial-dijkstra-e42e41.netlify.com/?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
+    attendant.email,
+    `${event.name} programme line up`,
+    attendant.name,
+    event.name,
+    event.pluLink,
+    `https://xenodochial-dijkstra-e42e41.netlify.com/?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
   } catch (e) {
     console.log(e);
   }
