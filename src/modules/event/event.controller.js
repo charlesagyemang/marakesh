@@ -30,7 +30,7 @@ export const createEvent = async (req, res) => {
 };
 
 export const updateEvent = async (req, res) => {
-  const id = req.id;
+  const id = req.params.id;
 
   const event = await Event.findById(id);
   if (!event) {
@@ -49,7 +49,7 @@ export const updateEvent = async (req, res) => {
 
 
 export const deleteEvent = async (req, res) => {
-  const id = req.id;
+  const id = req.params.id;
 
   const event = await Event.findById(id);
   if (!event) {
