@@ -1,13 +1,18 @@
 // import HTTPStatus from 'http-status';
-// import { nuke } from '../../../helpers/test_helpers';
+import { nuke } from '../../../helpers/test_helpers';
 // import Attendant from '../attendant.controller';
+import { sendTextMessage } from '../../notifications/notifications.controller';
 
 describe('Attendant:Controller', async () => {
   beforeEach(async () => {
-    // await nuke();
+    await nuke();
   });
 
-  it.skip('skip this test', async () => {
-      //
+  it.only('skip this test', async () => {
+    try {
+      sendTextMessage('0506193708', 'Money Heist', 'jgwvgachcha');
+    } catch (e) {
+      console.log(e);
+    }
   });
 });

@@ -1,4 +1,7 @@
 import { Client } from 'postmark';
+import axios from 'axios';
+
+// const axios = require('axios');
 
 export const sendEmail = async (
   recepient,
@@ -26,4 +29,8 @@ export const sendEmail = async (
   } catch (e) {
     return false;
   }
+};
+
+export const sendTextMessage = async (number, senderId, message) => {
+  return axios.get(`https://apps.mnotify.net/smsapi?key=lC9KbHYOhz54uwiOXaz05vz9c&to=${number}&msg=${message}&sender_id=${senderId}`);
 };

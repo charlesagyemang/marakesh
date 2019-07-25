@@ -1,7 +1,7 @@
 import HTTPStatus from 'http-status';
 import Attendant from './attendant.model';
 import Event from '../event/event.model';
-import { sendEmail } from '../notifications/notifications.controller';
+import { sendEmail, sendTextMessage } from '../notifications/notifications.controller';
 
 export const getAttendant = async (req, res) => {
   const id = req.params.id;
@@ -28,6 +28,7 @@ export const createAttendant = async (req, res) => {
     event.name,
     event.pluLink,
     `https://xenodochial-dijkstra-e42e41.netlify.com/ratings.html?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
+    sendTextMessage(req.body.number, event.name, `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Brand Sauce`);
   } catch (e) {
     console.log(e);
   }

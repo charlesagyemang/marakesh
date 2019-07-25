@@ -9,6 +9,7 @@ export default {
       eventId: Joi.string().required(),
       organisation: Joi.string(),
       specialId: Joi.string(),
+      position: Joi.string(),
     },
   },
   updateAttendant: {
@@ -18,6 +19,7 @@ export default {
       phoneNumber: Joi.string(),
       eventId: Joi.string(),
       specialId: Joi.string(),
+      position: Joi.string(),
     },
   },
 };
