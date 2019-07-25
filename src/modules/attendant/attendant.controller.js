@@ -33,7 +33,7 @@ export const createAttendant = async (req, res) => {
   }
 
   try {
-    await sendTextMessage(req.body.phoneNumber, event.name, `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Brand Sauce`);
+    await sendTextMessage(req.body.phoneNumber, 'Brand Sauce', `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Brand Sauce`);
   } catch (e) {
     console.log(e);
   }
