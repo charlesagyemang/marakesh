@@ -32,5 +32,12 @@ export const sendEmail = async (
 };
 
 export const sendTextMessage = async (number, senderId, message) => {
-  return axios.get(`https://apps.mnotify.net/smsapi?key=lC9KbHYOhz54uwiOXaz05vz9c&to=${number}&msg=${message}&sender_id=${senderId}`);
+  /* https://api.smsgh.com/v3/messages/send?From=AkokoPhoto&To=0506193708&Content=TryTwo&ClientId=idtdhbtx&ClientSecret=ybgoupdp
+  axios.get(`https://apps.mnotify.net/smsapi?key=lC9KbHYOhz54uwiOXaz05vz9c&to=${number}&msg=${message}&sender_id=${senderId}`)
+  .then((response) => { console.log(response.data); })
+  .catch((error) => { console.log(error); });
+  */
+  axios.get(`https://api.smsgh.com/v3/messages/send?From=${senderId}&To=${number}&Content=${message}&ClientId=idtdhbtx&ClientSecret=ybgoupdp`)
+  .then((response) => { console.log(response.data); })
+  .catch((error) => { console.log(error); });
 };

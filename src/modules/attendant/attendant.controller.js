@@ -21,14 +21,14 @@ export const createAttendant = async (req, res) => {
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
   try {
-    sendEmail(
+    await sendEmail(
     attendant.email,
     `${event.name} programme line up`,
     attendant.name,
     event.name,
     event.pluLink,
     `https://xenodochial-dijkstra-e42e41.netlify.com/ratings.html?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
-    sendTextMessage(req.body.number, event.name, `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Brand Sauce`);
+    await sendTextMessage(req.body.phoneNumber, event.name, `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Brand Sauce`);
   } catch (e) {
     console.log(e);
   }
