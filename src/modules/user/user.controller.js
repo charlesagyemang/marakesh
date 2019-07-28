@@ -59,3 +59,21 @@ export const login = async (req, res, next) => {
     return res.send(err);
   }
 };
+
+export const updateUser = async (req, res) => {
+  const id = req.params.id;
+
+  const user = await User.findByPk(id);
+  if (!user) {
+    res.sendStatus(HTTPStatus.NOT_FOUND);
+    return;
+  }
+
+  Object.keys(req.body).forEach((key) => {
+    user[key] = req.body[key];
+  });
+
+  await user.save();
+
+  res.status(HTTPStatus.OK).json(user.toJson());
+};

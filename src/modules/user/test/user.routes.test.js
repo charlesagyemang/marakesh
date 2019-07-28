@@ -45,7 +45,7 @@ describe('User::Routes', async () => {
     console.log(res.body);
   });
 
-  it.only('get a user successfully', async () => {
+  it('get a user successfully', async () => {
     await request(server).post('/api/users/register').send({
       name: 'Charles',
       email: 'mm@gmail.com',
@@ -58,6 +58,31 @@ describe('User::Routes', async () => {
     });
 
     const auth = { Authorization: `Bearer ${body.token}` };
+
+    const res = await request(server).get(`/api/users/${body.id}`).set(auth);
+
+    console.log(res.body);
+  });
+
+  it.only('Should Update  A User Successfully', async () => {
+    const user = await request(server).post('/api/users/register').send({
+      name: 'Charles',
+      email: 'mm@gmail.com',
+      password: 'password',
+    });
+
+    const login = await request(server).post('/api/users/login').send({
+      email: 'mm@gmail.com',
+      password: 'password',
+    });
+
+    const auth = { Authorization: `Bearer ${login.body.token}` };
+
+    const { body } = await request(server).put(`/api/users/${user.body.id}`).set(auth).send({
+      name: 'Kimi uitar',
+      email: 'koobiti@gmail.com',
+      // password: 'password1',
+    });
 
     const res = await request(server).get(`/api/users/${body.id}`).set(auth);
 
