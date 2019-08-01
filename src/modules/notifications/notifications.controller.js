@@ -3,6 +3,9 @@ import axios from 'axios';
 
 // const axios = require('axios');
 
+const clientId = 'fe1f6bb9-aee7-4a25-bd58-1067441563db'; // f8594991-9522-4b31-99f9-61865e7ed1e4
+const aliasTemplate = 'Plineup';
+
 export const sendEmail = async (
   recepient,
   subject,
@@ -12,11 +15,11 @@ export const sendEmail = async (
   ratingLink,
 ) => {
   try {
-    const client = new Client('f8594991-9522-4b31-99f9-61865e7ed1e4');
+    const client = new Client(clientId);
     client.sendEmailWithTemplate({
       From: 'admin@plineup.com',
       To: recepient,
-      TemplateAlias: 'welcome',
+      TemplateAlias: aliasTemplate,
       TemplateModel: {
         name,
         prog_name: eventName,
@@ -32,11 +35,6 @@ export const sendEmail = async (
 };
 
 export const sendTextMessage = async (number, senderId, message) => {
-  /* https://api.smsgh.com/v3/messages/send?From=AkokoPhoto&To=0506193708&Content=TryTwo&ClientId=idtdhbtx&ClientSecret=ybgoupdp
-  axios.get(`https://apps.mnotify.net/smsapi?key=lC9KbHYOhz54uwiOXaz05vz9c&to=${number}&msg=${message}&sender_id=${senderId}`)
-  .then((response) => { console.log(response.data); })
-  .catch((error) => { console.log(error); });
-  */
   axios.get(`https://api.smsgh.com/v3/messages/send?From=${senderId}&To=${number}&Content=${message}&ClientId=idtdhbtx&ClientSecret=ybgoupdp`)
   .then((response) => { console.log(response.data); })
   .catch((error) => { console.log(error); });
