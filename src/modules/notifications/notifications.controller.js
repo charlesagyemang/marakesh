@@ -4,7 +4,7 @@ import axios from 'axios';
 // const axios = require('axios');
 
 const clientId = 'fe1f6bb9-aee7-4a25-bd58-1067441563db'; // f8594991-9522-4b31-99f9-61865e7ed1e4
-const aliasTemplate = 'Plineup';
+const aliasTemplate = 'code-your-own-1';
 
 export const sendEmail = async (
   recepient,
@@ -17,7 +17,7 @@ export const sendEmail = async (
   try {
     const client = new Client(clientId);
     client.sendEmailWithTemplate({
-      From: 'admin@plineup.com',
+      From: 'response@vendyads.com',
       To: recepient,
       TemplateAlias: aliasTemplate,
       TemplateModel: {
