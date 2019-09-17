@@ -17,7 +17,7 @@ describe('Attendant:Routes', async () => {
       eventId: event.id,
       name: 'Charles Opoku Agyemang',
       email: 'micnkru@gmail.com',
-      phoneNumber: '0506193708',
+      phoneNumber: '0541348180',
       organisation: 'Vendyads',
       position: 'CTO',
     }).set(auth);

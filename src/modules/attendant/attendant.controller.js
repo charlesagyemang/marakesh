@@ -21,6 +21,7 @@ export const createAttendant = async (req, res) => {
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
   try {
+    await sendTextMessage(req.body.phoneNumber, 'Possitech', `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Possitech`);
     await sendEmail(
     attendant.email,
     `${event.name} Possitech`,
@@ -28,7 +29,6 @@ export const createAttendant = async (req, res) => {
     event.name,
     event.pluLink,
     `https://xenodochial-dijkstra-e42e41.netlify.com/ratings.html?sID=${req.body.specialId}&eID=${event.id}&rMsg=${event.ratingMessage}&logoUrl=${event.logoUrl}`);
-    await sendTextMessage(req.body.phoneNumber, 'Possitech', `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Possitech`);
   } catch (e) {
     console.log(e);
   }

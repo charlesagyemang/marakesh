@@ -10,7 +10,7 @@ describe('Attendant:Controller', async () => {
 
   it.only('skip this test', async () => {
     try {
-      sendTextMessage('0506193708', 'Money Heist', 'jgwvgachcha');
+      sendTextMessage('0541348180', 'Money Heist', 'jgwvgachcha');
     } catch (e) {
       console.log(e);
     }
