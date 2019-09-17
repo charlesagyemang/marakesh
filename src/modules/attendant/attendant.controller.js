@@ -21,7 +21,7 @@ export const createAttendant = async (req, res) => {
   const attendant = await Attendant.create({ ...req.body });
   // Send Email
   try {
-    await sendTextMessage(req.body.phoneNumber, 'Possitech', `Welcome To ${event.name}. Click ${event.pluLink} to access the program. By Possitech`);
+    await sendTextMessage(req.body.phoneNumber, 'Possitech', `Thanks For Registering For The ${event.name}. Click ${event.pluLink} to access the program. By Possitech`);
     await sendEmail(
     attendant.email,
     `${event.name} Possitech`,
